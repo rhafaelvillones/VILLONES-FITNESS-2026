@@ -4,6 +4,13 @@
   padding: 4rem 0;
   &__top {
     @include between;
+    @include mediaQuery(520px) {
+      flex-direction: column;
+      @include centerAll;
+      gap: 1rem;
+      margin-top: 8rem;
+      padding-bottom: 2rem;
+    }
     &--left {
       small {
         text-transform: uppercase;
@@ -12,6 +19,9 @@
         margin-top: 2rem;
         line-height: 5rem;
         max-width: 48rem;
+        @include mediaQuery(520px) {
+          line-height: 3rem;
+        }
       }
     }
     &--right {
@@ -44,6 +54,13 @@
       "b c";
     align-items: center;
     gap: 1rem;
+    @include mediaQuery(520px) {
+      grid-template-areas:
+        "a"
+        "b"
+        "c";
+      text-align: center;
+    }
   }
 }
 
@@ -55,6 +72,21 @@
     max-width: 70rem;
     margin: 0 auto;
     gap: 2rem;
+    @include mediaQuery(520px) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      .cardIcon {
+        flex-direction: column;
+        @include centerAll;
+        &:last-child {
+          img {
+            padding-left: 1.5rem;
+          }
+        }
+      }
+    }
     .cardIcon {
       background-color: $clr--light;
       color: $clr--dark;
@@ -64,9 +96,9 @@
   }
 }
 
-.aboutLocation{
-    padding: 4rem 0;
-    &__map{
-        @include centerAll;
-    }
+.aboutLocation {
+  padding: 4rem 0;
+  &__map {
+    @include centerAll;
+  }
 }
